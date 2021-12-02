@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import './App.css';
 import text from './text.json';
+import errejon from './errejon.png';
 
 class App extends Component {
 
@@ -12,6 +13,7 @@ class App extends Component {
             paragraphs: text.length,
             words: 100
         }
+        this.textRef = createRef();
     }
 
     componentDidMount() {
@@ -67,6 +69,10 @@ class App extends Component {
         this.setState({text: finalText})
     }
 
+    copy = () => {
+        navigator.clipboard.writeText(this.textRef.current.innerText);
+    }
+
     render() {
         return (
             <div>
@@ -94,11 +100,22 @@ class App extends Component {
                         </div>
                     }
                     <button onClick={this.changeText}>Generar</button>
+                    <button onClick={this.copy}>Copiar</button>
                 </div>
                 <div>
-                    {
-                        this.state.text != null && this.state.text.map((t, i) => <p key={i}>{t}</p>)
-                    }
+                    <img src={errejon} className="errejon" alt="errejon"/>
+                    <p ref={this.textRef} className="text">
+                        {
+                            this.state.text != null && this.state.text.map((t, i) => {
+                                return (
+                                    <>
+                                        {t}
+                                        { i < this.state.text.length - 1 && <><br /><br /></> }
+                                    </>
+                                );
+                            })
+                        }
+                    </p>
                 </div>
             </div>
         );

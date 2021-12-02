@@ -1,0 +1,13 @@
+.errejon {
+    float: left;
+    background-color: var(--primary-color);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px
+}
+
+.text {
+    background-color: var(--secondary-color);
+    min-height: 160px;
+    padding: 20px
+}
