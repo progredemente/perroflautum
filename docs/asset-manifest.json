@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.d90add2f.chunk.css",
-    "main.js": "/static/js/main.85c4bc17.chunk.js",
-    "main.js.map": "/static/js/main.85c4bc17.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8d4698da.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8d4698da.js.map",
-    "static/js/2.d1271a72.chunk.js": "/static/js/2.d1271a72.chunk.js",
-    "static/js/2.d1271a72.chunk.js.map": "/static/js/2.d1271a72.chunk.js.map",
-    "static/js/3.7cd77f8b.chunk.js": "/static/js/3.7cd77f8b.chunk.js",
-    "static/js/3.7cd77f8b.chunk.js.map": "/static/js/3.7cd77f8b.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.d90add2f.chunk.css.map": "/static/css/main.d90add2f.chunk.css.map",
-    "static/js/2.d1271a72.chunk.js.LICENSE.txt": "/static/js/2.d1271a72.chunk.js.LICENSE.txt",
-    "static/media/Icon.css": "/static/media/comic_icons.4902e46a.ttf",
-    "static/media/index.css": "/static/media/comic_typo.996a5fee.ttf",
-    "static/media/errejon.3e58229e.png": "/static/media/errejon.3e58229e.png"
+    "main.css": "./static/css/main.d2b5b4d1.chunk.css",
+    "main.js": "./static/js/main.85c4bc17.chunk.js",
+    "main.js.map": "./static/js/main.85c4bc17.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.65dc12ee.js",
+    "runtime-main.js.map": "./static/js/runtime-main.65dc12ee.js.map",
+    "static/js/2.d1271a72.chunk.js": "./static/js/2.d1271a72.chunk.js",
+    "static/js/2.d1271a72.chunk.js.map": "./static/js/2.d1271a72.chunk.js.map",
+    "static/js/3.7cd77f8b.chunk.js": "./static/js/3.7cd77f8b.chunk.js",
+    "static/js/3.7cd77f8b.chunk.js.map": "./static/js/3.7cd77f8b.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.d2b5b4d1.chunk.css.map": "./static/css/main.d2b5b4d1.chunk.css.map",
+    "static/js/2.d1271a72.chunk.js.LICENSE.txt": "./static/js/2.d1271a72.chunk.js.LICENSE.txt",
+    "static/media/Icon.css": "./static/media/comic_icons.4902e46a.ttf",
+    "static/media/index.css": "./static/media/comic_typo.996a5fee.ttf",
+    "static/media/errejon.3e58229e.png": "./static/media/errejon.3e58229e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8d4698da.js",
+    "static/js/runtime-main.65dc12ee.js",
     "static/js/2.d1271a72.chunk.js",
-    "static/css/main.d90add2f.chunk.css",
+    "static/css/main.d2b5b4d1.chunk.css",
     "static/js/main.85c4bc17.chunk.js"
   ]
 }
