@@ -1,13 +1,181 @@
-.errejon {
-    float: left;
-    background-color: var(--primary-color);
-    margin-right: 20px;
-    margin-bottom: 20px;
-    padding: 10px
+.text {
+    --padding: 20px;
+    --height: 200px;
+    background-color: var(--secondary-color);
+    min-height: calc(var(--height) - 2 * var(--padding));
+    padding: var(--padding);
+    border-radius: var(--border-radius);
 }
 
-.text {
+.errejon {
+    position: relative;
+}
+
+.errejon > img {
+    float: left;
+    height: var(--height);
+    width: var(--height);
+    object-fit: none;
+    object-position: 0 0;
+    background-color: var(--primary-color);
+    padding: 10px;
+    animation: speak 3.5s step-end infinite;
+    transform: translate(calc(-1 * var(--padding)), calc(-1 * var(--padding)));
+    border-bottom-right-radius: var(--border-radius);
+}
+
+@keyframes speak {
+    0% {
+        object-position: 0 0;
+    }
+    5% {
+        object-position: -200px 0;
+    }
+    10% {
+        object-position: 0 0;
+    }
+    15% {
+        object-position: -200px 0;
+    }
+    20% {
+        object-position: 0 0;
+    }
+    40% {
+        object-position: -200px 0;
+    }
+    45% {
+        object-position: 0 0;
+    }
+    65% {
+        object-position: -200px 0;
+    }
+    70% {
+        object-position: 0 0;
+    }
+    75% {
+        object-position: -200px 0;
+    }
+    80% {
+        object-position: 0 0;
+    }
+    85% {
+        object-position: -200px 0;
+    }
+    90% {
+        object-position: 0 0;
+    }
+}
+.errejon::after {
+    --width: 20px;
+    position: absolute;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    left: calc(-1 * var(--padding) - var(--width));
+    top: calc(var(--height) * 0.70);
+    transform: translateY(-50%);
+    border-bottom: var(--width) solid transparent;
+    border-top: var(--width) solid transparent;
+    border-right: var(--width) solid var(--secondary-color);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+h1 > :first-child {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+h1 > :nth-child(2) {
+    font-size: 1.5em;
+}
+
+h1 > :last-child {
+    text-align: right;
+}
+
+h1 > :not(:first-child) {
+    color: var(--secondary-color)
+}
+
+.controls > div {
+    margin: 10px 0;
+}
+
+.mode {
+    display: inline-flex;
     background-color: var(--secondary-color);
-    min-height: 160px;
-    padding: 20px
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.mode > div {
+    padding: 10px;
+    color: var(--primary-color);
+}
+
+.mode > div.selected {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+
+input {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    color: var(--primary-color);
+    font-size: 1em;
+    padding: 5px 10px;
+    border: none;
+    text-align: right;
+    width: 5em;
+    outline: none !important;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons > button {
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+    outline: none !important;
+}
+
+.buttons > button::after {
+    content: "";
+    background: var(--primary-color);
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    opacity: 0;
+    top: 0;
+    left: 100%;
+    transition: all .5s;
+}
+
+.buttons > button:active::after {
+    opacity: 1;
+    transition: 0s;
+    left: -100%;
 }

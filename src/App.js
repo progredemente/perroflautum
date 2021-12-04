@@ -2,6 +2,7 @@ import { Component, createRef } from 'react';
 import './App.css';
 import text from './text.json';
 import errejon from './errejon.png';
+import Icon from './Icon';
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
         this.state = {
             text: null,
             mode: "paragraphs",
-            paragraphs: text.length,
+            paragraphs: 3,
             words: 100
         }
         this.textRef = createRef();
@@ -18,9 +19,6 @@ class App extends Component {
 
     componentDidMount() {
         this.changeText();
-    }
-    changeMode = (evt) => {
-        this.setState({mode: evt.target.value})
     }
 
     changeParagraphs = (evt) => {
@@ -49,13 +47,12 @@ class App extends Component {
                     wordCount -= amountOfWordsToAdd;
                     finalWords.push(...originalWords.slice(0, amountOfWordsToAdd));
                 }
-                console.log(finalWords);
                 let finalWordsJoin = finalWords.join(" ");
                 if(finalWordsJoin.match(/[,;]$/)){
                     finalWordsJoin = finalWordsJoin.substring(0, finalWordsJoin.length - 1);
                 }
                 if(!finalWordsJoin.match(/[.?]$/)){
-                    if(finalWordsJoin.match(/¿[^.]*$/)) {
+                    if(finalWordsJoin.match(/¿[^.?]*$/)) {
                         finalWordsJoin += "?";
                     }
                     else {
@@ -76,42 +73,53 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>PerroFlautum</h1>
-                <div>
+                <header>
+                    <h1>
+                        <div>PERRO FLAUTUM</div>
+                        <div>El lorem ipsum perroflautés</div>
+                        <div>por <a href="/" target="_blank">progredemente</a><br />textos del canal de <a href="https://www.youtube.com/watch?v=W8b3_hI8Bic&list=PL-5YtFfXdaFRGdJmqlqztuXgXcVmGNIw-&index=2&ab_channel=FernandoD%C3%ADazVillanueva" target="_blank" rel="noreferrer noopener">FDV</a></div>
+                        
+                    </h1>
+                </header>
+                <div className="controls">
                     <div>
-                        <label>Modo: </label>
-                        <select name="mode" onChange={this.changeMode} value={this.state.mode}>
-                            <option value="paragraphs">Párrafos</option>
-                            <option value="words">Palabras</option>
-                        </select>
+                        <label htmlFor="mode">Modo de generación:&nbsp;</label>
+                        <div name="mode" className="mode">
+                            <div className={this.state.mode === "paragraphs" ? "selected" : ""} onClick={() => { this.setState({mode: "paragraphs"})}}>Párrafos</div>
+                            <div className={this.state.mode === "words" ? "selected" : ""} onClick={() => { this.setState({mode: "words"})}}>Palabras</div>
+                        </div>
                     </div>
                     {
                         this.state.mode === "paragraphs" &&
                         <div>
-                            <label htmlFor="paragraphs">Párrafos: </label>
+                            <label htmlFor="paragraphs">Párrafos a generar:&nbsp;</label>
                             <input type="number" name="paragraphs" value={this.state.paragraphs} onChange={this.changeParagraphs}/>
                         </div>
                     }
                     {
                         this.state.mode === "words" &&
                         <div>
-                            <label htmlFor="words">Palabras: </label>
+                            <label htmlFor="words">Palabras a generar:&nbsp;</label>
                             <input type="number" name="words" value={this.state.words} onChange={this.changeWords}/>
                         </div>
                     }
-                    <button onClick={this.changeText}>Generar</button>
-                    <button onClick={this.copy}>Copiar</button>
+                    <div className="buttons">
+                        <button onClick={this.changeText}>Generar</button>
+                        <button onClick={this.copy}>Copiar&nbsp;<Icon icon="C"/></button>
+                    </div>
                 </div>
                 <div>
-                    <img src={errejon} className="errejon" alt="errejon"/>
                     <p ref={this.textRef} className="text">
+                        <span className="errejon">
+                            <img src={errejon} alt="errejon"/>
+                        </span>
                         {
                             this.state.text != null && this.state.text.map((t, i) => {
                                 return (
-                                    <>
+                                    <span key={i}>
                                         {t}
                                         { i < this.state.text.length - 1 && <><br /><br /></> }
-                                    </>
+                                    </span>
                                 );
                             })
                         }
