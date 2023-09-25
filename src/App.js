@@ -1,8 +1,7 @@
-import { Component, createRef } from 'react';
+import React, { Component, createRef } from 'react';
 import './App.css';
 import text from './text.json';
-import errejon from './errejon.png';
-import Icon from './Icon';
+import { Icon } from 'components/Icon';
 
 class App extends Component {
 
@@ -111,7 +110,7 @@ class App extends Component {
                 <div>
                     <p ref={this.textRef} className="text">
                         <span className="errejon">
-                            <img src={errejon} alt="errejon"/>
+                            <img src={'./errejon.png'} alt="errejon"/>
                         </span>
                         {
                             this.state.text != null && this.state.text.map((t, i) => {
