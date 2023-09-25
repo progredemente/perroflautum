@@ -1,20 +1,28 @@
 * {
     font-family: ComicTypo;
+    box-sizing: border-box;
     --primary-color: #009D8C;
     --secondary-color: #DAFAF7;
     --text-color: #013833;
     --border-radius: 20px;
-    color: var(--text-color)
+}
+
+html, body, #root {
+  height: 100%;
 }
 
 body {
     margin: 0 auto;
-    max-width: 900px;
-    background-color: var(--primary-color);
     font-size: 1.5em;
+    background-color: var(--primary-color);
 }
 
 a {
     text-decoration: none;
     color: #032055;
+}
+
+.apps-bar-container {
+    --apps-bar-primary-color: var(--text-color) !important;
+    --apps-bar-secondary-color: var(--secondary-color) !important;
 }

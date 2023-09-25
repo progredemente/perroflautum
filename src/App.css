@@ -1,3 +1,9 @@
+.app {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text-color);
+}
+
 .text {
     --padding: 20px;
     --height: 200px;
@@ -12,6 +18,7 @@
 }
 
 .errejon > img {
+    box-sizing: content-box;
     float: left;
     height: var(--height);
     width: var(--height);

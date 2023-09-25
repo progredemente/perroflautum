@@ -2,6 +2,8 @@ import React, { Component, createRef } from 'react';
 import './App.css';
 import text from './text.json';
 import { Icon } from 'components/Icon';
+import { AppsBar } from 'components/AppsBar';
+
 
 class App extends Component {
 
@@ -71,60 +73,62 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <header>
-                    <h1>
-                        <div>PERRO FLAUTUM</div>
-                        <div>El generador de lorem ipsum<br />en perroflautés</div>
-                        <div>por <a href="/" target="_blank">progredemente</a><br />textos del canal de <a href="https://www.youtube.com/watch?v=W8b3_hI8Bic&list=PL-5YtFfXdaFRGdJmqlqztuXgXcVmGNIw-&index=2&ab_channel=FernandoD%C3%ADazVillanueva" target="_blank" rel="noreferrer noopener">FDV</a></div>
-                        
-                    </h1>
-                </header>
-                <div className="controls">
-                    <div>
-                        <label htmlFor="mode">Modo de generación:&nbsp;</label>
-                        <div name="mode" className="mode">
-                            <div className={this.state.mode === "paragraphs" ? "selected" : ""} onClick={() => { this.setState({mode: "paragraphs"})}}>Párrafos</div>
-                            <div className={this.state.mode === "words" ? "selected" : ""} onClick={() => { this.setState({mode: "words"})}}>Palabras</div>
-                        </div>
-                    </div>
-                    {
-                        this.state.mode === "paragraphs" &&
+            <AppsBar current='perroflautum'>
+                <div className='app'>
+                    <header>
+                        <h1>
+                            <div>PERRO FLAUTUM</div>
+                            <div>El generador de lorem ipsum<br />en perroflautés</div>
+                            <div>por <a href="/" target="_blank">progredemente</a><br />textos del canal de <a href="https://www.youtube.com/watch?v=W8b3_hI8Bic&list=PL-5YtFfXdaFRGdJmqlqztuXgXcVmGNIw-&index=2&ab_channel=FernandoD%C3%ADazVillanueva" target="_blank" rel="noreferrer noopener">FDV</a></div>
+                            
+                        </h1>
+                    </header>
+                    <div className="controls">
                         <div>
-                            <label htmlFor="paragraphs">Párrafos a generar:&nbsp;</label>
-                            <input type="number" name="paragraphs" value={this.state.paragraphs} onChange={this.changeParagraphs}/>
+                            <label htmlFor="mode">Modo de generación:&nbsp;</label>
+                            <div name="mode" className="mode">
+                                <div className={this.state.mode === "paragraphs" ? "selected" : ""} onClick={() => { this.setState({mode: "paragraphs"})}}>Párrafos</div>
+                                <div className={this.state.mode === "words" ? "selected" : ""} onClick={() => { this.setState({mode: "words"})}}>Palabras</div>
+                            </div>
                         </div>
-                    }
-                    {
-                        this.state.mode === "words" &&
-                        <div>
-                            <label htmlFor="words">Palabras a generar:&nbsp;</label>
-                            <input type="number" name="words" value={this.state.words} onChange={this.changeWords}/>
-                        </div>
-                    }
-                    <div className="buttons">
-                        <button onClick={this.changeText}>Generar</button>
-                        <button onClick={this.copy}>Copiar&nbsp;<Icon icon="C"/></button>
-                    </div>
-                </div>
-                <div>
-                    <p ref={this.textRef} className="text">
-                        <span className="errejon">
-                            <img src={'./errejon.png'} alt="errejon"/>
-                        </span>
                         {
-                            this.state.text != null && this.state.text.map((t, i) => {
-                                return (
-                                    <span key={i}>
-                                        {t}
-                                        { i < this.state.text.length - 1 && <><br /><br /></> }
-                                    </span>
-                                );
-                            })
+                            this.state.mode === "paragraphs" &&
+                            <div>
+                                <label htmlFor="paragraphs">Párrafos a generar:&nbsp;</label>
+                                <input type="number" name="paragraphs" value={this.state.paragraphs} onChange={this.changeParagraphs}/>
+                            </div>
                         }
-                    </p>
+                        {
+                            this.state.mode === "words" &&
+                            <div>
+                                <label htmlFor="words">Palabras a generar:&nbsp;</label>
+                                <input type="number" name="words" value={this.state.words} onChange={this.changeWords}/>
+                            </div>
+                        }
+                        <div className="buttons">
+                            <button onClick={this.changeText}>Generar</button>
+                            <button onClick={this.copy}>Copiar&nbsp;<Icon icon="C"/></button>
+                        </div>
+                    </div>
+                    <div>
+                        <p ref={this.textRef} className="text">
+                            <span className="errejon">
+                                <img src={'./errejon.png'} alt="errejon"/>
+                            </span>
+                            {
+                                this.state.text != null && this.state.text.map((t, i) => {
+                                    return (
+                                        <span key={i}>
+                                            {t}
+                                            { i < this.state.text.length - 1 && <><br /><br /></> }
+                                        </span>
+                                    );
+                                })
+                            }
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </AppsBar>
         );
     }
 }
