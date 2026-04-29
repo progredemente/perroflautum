@@ -79,7 +79,7 @@ class App extends Component {
                         <h1>
                             <div>PERRO FLAUTUM</div>
                             <div>El generador de lorem ipsum<br />en perroflautés</div>
-                            <div>por <a href="/" target="_blank">progredemente</a><br />textos del canal de <a href="https://www.youtube.com/watch?v=W8b3_hI8Bic&list=PL-5YtFfXdaFRGdJmqlqztuXgXcVmGNIw-&index=2&ab_channel=FernandoD%C3%ADazVillanueva" target="_blank" rel="noreferrer noopener">FDV</a></div>
+                            <div>por <a href="https://progredemente.com" target="_blank">progredemente</a><br />textos del canal de <a href="https://www.youtube.com/watch?v=W8b3_hI8Bic&list=PL-5YtFfXdaFRGdJmqlqztuXgXcVmGNIw-&index=2&ab_channel=FernandoD%C3%ADazVillanueva" target="_blank" rel="noreferrer noopener">FDV</a></div>
                             
                         </h1>
                     </header>
